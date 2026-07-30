@@ -4,89 +4,104 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- displays site properly based on user's device -->
-
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-
   <title>Frontend Mentor | E-commerce product page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution {
-      font-size: 0.6875rem;
-      text-align: center;
-    }
-
-    .attribution a {
-      color: hsl(228, 45%, 44%);
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <div class="container">
-    <header>
-      <figure class="logo">
-        <a href="#"><img src="images/logo.svg" alt="logo images"></a>
-      </figure>
-      <nav class="menu">
-        <ul>
-          <li><a href="#">Collections</a></li>
-          <li><a href="#">Men</a></li>
-          <li><a href="#">Women </a></li>
-          <li><a href="#">About </a></li>
-          <li><a href="#">Contact </a></li>
+    <!-- HEADER BLOCK -->
+    <header class="header">
+      <div class="header__menu">
+      <a href="#" class="header__logo-link">
+        <img src="images/logo.svg" alt="Sneakers logo" class="header__logo">
+      </a>
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item"><a href="#" class="nav__link">Collections</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Men</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Women</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+          <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
         </ul>
       </nav>
-      <figure>
-        <button><img src="images/icon-cart.svg" alt="cart images"></button>
-        <img src="images/image-avatar.png" alt="avatar images">
-      </figure>
+       </div>
+      <div class="header__user">
+        <button type="button" class="header__cart-btn" aria-label="Sepeti Göster">
+          <img src="images/icon-cart.svg" alt="" aria-hidden="true" class="header__cart-icon">
+        </button>
+        <a href="#" class="header__avatar-link">
+          <img src="images/image-avatar.png" alt="Kullanıcı profili" class="header__avatar">
+        </a>
+      </div>
     </header>
-    <main>
+    <!-- MAIN PRODUCT BLOCK -->
+    <main class="main-content">
+      <section class="product">
 
-      <section>
-        <div>
-          <div>
-            <img src="images/image-product-1.jpg" alt="">
+        <!-- PRODUCT GALLERY SUB-BLOCK -->
+        <div class="product__gallery">
+          <div class="product__main-img-wrapper">
+            <img src="images/image-product-1.jpg" alt="Fall Limited Edition ayakkabı görseli" class="product__main-img">
           </div>
-          <div>
-            <button><img src="images/image-product-1-thumbnail.jpg" alt="product image "></button>
-            <button><img src="images/image-product-2-thumbnail.jpg" alt="product image "></button>
-            <button><img src="images/image-product-3-thumbnail.jpg" alt="product image "></button>
-            <button><img src="images/image-product-4-thumbnail.jpg" alt="product image "></button>
 
+          <div class="product__thumbnails">
+            <button type="button" class="product__thumb-btn product__thumb-btn--active" aria-label="1. görseli seç">
+              <img src="images/image-product-1-thumbnail.jpg" alt="" class="product__thumb-img">
+            </button>
+            <button type="button" class="product__thumb-btn" aria-label="2. görseli seç">
+              <img src="images/image-product-2-thumbnail.jpg" alt="" class="product__thumb-img">
+            </button>
+            <button type="button" class="product__thumb-btn" aria-label="3. görseli seç">
+              <img src="images/image-product-3-thumbnail.jpg" alt="" class="product__thumb-img">
+            </button>
+            <button type="button" class="product__thumb-btn" aria-label="4. görseli seç">
+              <img src="images/image-product-4-thumbnail.jpg" alt="" class="product__thumb-img">
+            </button>
           </div>
         </div>
-        <section>
-          <span> Sneaker Company</span>
-          <h1> Fall Limited Edition Sneakers</h1>
-          <p>
+
+        <!-- PRODUCT INFO SUB-BLOCK -->
+        <div class="product__info">
+          <span class="product__subtitle">Sneaker Company</span>
+          <h1 class="product__title">Fall Limited Edition Sneakers</h1>
+          <p class="product__description">
             These low-profile sneakers are your perfect casual wear companion. Featuring a
             durable rubber outer sole, they’ll withstand everything the weather can offer.
           </p>
 
-         <div class="price-container">
-  <div class="current-price">
-    <span class="price">$125.00</span>
-    <span class="discount">50%</span>
-  </div>
-  <del class="original-price">$250.00</del>
-</div>
+          <div class="product__price-box">
+            <div class="product__current-price">
+              <span class="product__price">$125.00</span>
+              <span class="product__discount">50%</span>
+            </div>
+            <del class="product__original-price">$250.00</del>
+          </div>
 
-          <button aria-label="decrease button">-</button>
-          <span>0</span>
-          <button aria-label="increase button">+</button>
-          <button aria-label="Add to cart button"> Add to cart </button>
+          <div class="product__actions">
+            <div class="product__quantity">
+              <button type="button" class="product__quantity-btn" aria-label="Miktarı azalt">-</button>
+              <span class="product__quantity-value">0</span>
+              <button type="button" class="product__quantity-btn" aria-label="Miktarı artır">+</button>
+            </div>
 
+            <button type="button" class="product__add-btn">
+              <img src="images/icon-cart.svg" alt="" aria-hidden="true" class="product__add-btn-icon">
+              <span>Add to cart</span>
+            </button>
+          </div>
+        </div>
 
-        </section>
-
+      </section>
     </main>
 
     <footer class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" class="attribution__link">Frontend Mentor</a>.
+      Coded by <a href="#" class="attribution__link">Emel</a>.
     </footer>
   </div>
 </body>
