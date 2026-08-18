@@ -207,3 +207,16 @@ font-weight: var(--fw-bold);
   line-height: var(--lh-400);
   font-weight: var(--fw-bold);
 }
+.product__original-price{
+  border-radius: 5px;
+  color: var(--grey-500);
+    font-size: var(--fs-400);
+  line-height: var(--lh-400);
+  font-weight: var(--fw-bold);
+}
+.product__actions{
+display: flex;
+flex-direction: row;
+align-items: center;
+gap: var(--space-200);
+}
