@@ -7,8 +7,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Frontend Mentor | E-commerce product page</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght,YOPQ@100..900,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,19 +18,19 @@
     <header class="header">
       <div class="header__menu">
         <button class="menu"><img src="images/icon-menu.svg" alt=""></button>
-      <a href="#" class="header__logo-link">
-        <img src="images/logo.svg" alt="Sneakers logo" class="header__logo">
-      </a>
-      <nav class="nav">
-        <ul class="nav__list">
-          <li class="nav__item"><a href="#" class="nav__link">Collections</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Men</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Women</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">About</a></li>
-          <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
-        </ul>
-      </nav>
-       </div>
+        <a href="#" class="header__logo-link">
+          <img src="images/logo.svg" alt="Sneakers logo" class="header__logo">
+        </a>
+        <nav class="nav">
+          <ul class="nav__list">
+            <li class="nav__item"><a href="#" class="nav__link">Collections</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Men</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Women</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">About</a></li>
+            <li class="nav__item"><a href="#" class="nav__link">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
       <div class="header__user">
         <button type="button" class="header__cart-btn" aria-label="Sepeti Göster">
           <img src="images/icon-cart.svg" alt="" aria-hidden="true" class="header__cart-icon">
@@ -45,10 +45,13 @@
       <section class="product">
         <!-- PRODUCT GALLERY SUB-BLOCK -->
         <div class="product__gallery">
+          
           <div class="product__main-img-wrapper">
+            <button class="product__nextButton"><img src="images/icon-next.svg" alt="next icon img"></button>
             <img src="images/image-product-1.jpg" alt="Fall Limited Edition ayakkabı görseli" class="product__main-img">
+            <button class="product__previousButton"><img src="images/icon-previous.svg" alt="previous icon img"></button>
           </div>
-
+          
           <div class="product__thumbnails">
             <button type="button" class="product__thumb-btn product__thumb-btn--active" aria-label="1. görseli seç">
               <img src="images/image-product-1-thumbnail.jpg" alt="" class="product__thumb-img">
