@@ -54,6 +54,8 @@
   --space-1600: 8rem; /* 128px */
 }
 * {
+  padding: 0;
+  margin: 0;
   font-family: "Kumbh Sans", sans-serif;
   box-sizing: border-box;
 }
@@ -69,6 +71,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: var(--space-1200);
+
 }
 header {
   width: 100%;
@@ -135,18 +138,16 @@ header {
   flex-direction: column;
   gap: var(--space-400);
 }
-.product__main-img-wrapper{
-  display: flex;
-  flex-direction: column;
+.product__main-img-wrapper {
+  position: relative;
+  width: 100%;
 }
-.product__nextButton{
-  width: 40px;
-  height: 40px;
-  background-color: var(--white);
-  padding: var();
+.product__nextButton,
+.product__previousButton {
+  display: none;
 }
 .product__main-img {
-  width: 448px;
+  width: 100%;
   border-radius: var(--space-200);
 }
 .product__thumbnails {
@@ -301,13 +302,36 @@ header {
     align-items: center;
     gap: var(--space-600);
   }
+  .product__main-img {
+    width: 100%;
+    height: 290px;
+    border-radius: var(--space-200);
+  }
   .product__gallery {
     gap: 0;
     width: 100%;
   }
-  .product__main-img {
-    width: 100%;
-    height: 290px;
+  .product__previousButton,
+  .product__nextButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: var(--white);
+    border-radius: 50%;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .product__previousButton {
+    left: 16px;
+  }
+  .product__nextButton {
+    right: 16px;
   }
   .product__thumbnails {
     display: none;
@@ -335,6 +359,20 @@ header {
   .container {
     width: 375px;
     gap: var(--space-200);
+  }
+  header {
+    padding: var(--space-300);
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+  .header__user {
+    gap: var(--space-300);
+    align-items: center;
+    justify-self: center;
+  }
+  .header__avatar {
+    width: var(--space-300);
+    height: var(--space-300);
   }
   .product {
     gap: var(--space-300);
