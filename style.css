@@ -275,7 +275,9 @@ header {
 .product__add-btn-icon {
   filter: brightness(0);
 }
-
+.lightbox{
+  display: none;
+}
 @media (max-width: 1144px) {
   .container {
     width: 608px;
