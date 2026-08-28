@@ -148,6 +148,7 @@ header {
 }
 .product__main-img {
   width: 100%;
+  height: 100%;
   border-radius: var(--space-200);
 }
 .product__thumbnails {
