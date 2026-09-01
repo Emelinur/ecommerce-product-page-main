@@ -276,7 +276,8 @@ header {
   filter: brightness(0);
 }
 .lightbox{
-  display: none;
+  display: flex;
+
 }
 @media (max-width: 1144px) {
   .container {
