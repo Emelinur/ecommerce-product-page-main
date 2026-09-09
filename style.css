@@ -285,14 +285,11 @@ header {
   z-index: 1000;
 }
 
-/* Siyah Yarı Saydam Arka Plan */
 .lightbox__overlay {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.75);
 }
-
-
 .lightbox__container {
   position: relative;
   z-index: 10;
@@ -302,8 +299,6 @@ header {
   gap: var(--space-400);
   width: 550px;
 }
-
-
 .lightbox__close-btn {
   align-self: flex-end;
   background: transparent;
@@ -321,10 +316,7 @@ header {
 }
 
 .lightbox__close-btn:hover img {
-  filter: invert(52%) sepia(87%) saturate(1478%) hue-rotate(359deg) brightness(99%) contrast(97%);
-}
-
-
+  filter: invert(52%) sepia(87%) saturate(1478%) hue-rotate(359deg) brightness(99%) contrast(97%);}
 .lightbox__main-img-wrapper {
   position: relative;
   width: 100%;
@@ -359,12 +351,9 @@ header {
 .lightbox__btn--next {
   right: -28px;
 }
-
 .lightbox__btn:hover img {
   filter: invert(52%) sepia(87%) saturate(1478%) hue-rotate(359deg) brightness(99%) contrast(97%);
 }
-
-
 .lightbox__thumbnails {
   display: flex;
   justify-content: center;
