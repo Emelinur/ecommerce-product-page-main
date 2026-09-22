@@ -1,71 +1,73 @@
-const productThumbnailBtn=document.querySelectorAll(".product__thumb-btn");
-const productMainImg=document.querySelector(".product__main-img");
+const productThumbnailBtn = document.querySelectorAll(".product__thumb-btn");
+const productMainImg = document.querySelector(".product__main-img");
+const lightbox = document.querySelector(".lightbox");
+const lightboxMainImg = document.querySelector(".lightbox__main-img");
+const lightboxThumbBtn = document.querySelectorAll(".lightbox__thumb-btn");
+const lightboxBtnNext = document.querySelector(".lightbox__btn--next");
+const lightboxBtnPrev = document.querySelector(".lightbox__btn--prev");
+const lightboxCloseBtn = document.querySelector(".lightbox__close-btn");
 
-const lightbox=document.querySelector(".lightbox");
-const lightboxBtnNext=document.querySelector(".lightbox__btn--next");
-const lightboxMainImg=document.querySelector(".lightbox__main-img");
-const lightboxThumbBtn=document.querySelectorAll(".lightbox__thumb-btn")
-const lightboxThumbImg=document.querySelectorAll(".lightbox__thumb-img")
-const lightboxBtnPrev=document.querySelector(".lightbox__btn--prev")
-
-productThumbnailBtn.forEach((btn,index)=>{
-  btn.addEventListener("click",(e)=>{
-  if(e.isTrusted){
-productMainImg.src=`images/image-product-${index + 1}.jpg`
-productThumbnailBtn.forEach((b) => b.classList.remove("product__thumb-btn--active"));
-    btn.classList.add("product__thumb-btn--active");
-  }
-  })
-})
-
-
-let currentLightboxIndex = 0;
-const totalImages = lightboxThumbBtn.length; 
-
-
-function updateLightbox(index) {
-  currentLightboxIndex = index;
-  lightboxMainImg.src = `images/image-product-${currentLightboxIndex + 1}.jpg`;
-  lightboxThumbBtn.forEach((btn, i) => {
-    btn.classList.toggle("lightbox__thumb-btn--active", i === currentLightboxIndex);
+function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
+  buttons.forEach((btn, index) => {
+    btn.addEventListener("click", () => {
+      mainImg.src = `images/image-product-${index + 1}.jpg`;
+      buttons.forEach((b) => b.classList.remove(activeClass));
+      btn.classList.add(activeClass);
+      if (onSelectCallback) {
+        onSelectCallback(index);
+      }
+    });
   });
 }
 
+let currentImageIndex = 0;
+const totalImages = lightboxThumbBtn.length;
+function updateLightbox(index) {
+  currentImageIndex = index;
+  lightboxMainImg.src = `images/image-product-${currentImageIndex + 1}.jpg`;
+  lightboxThumbBtn.forEach((btn, i) => {
+    btn.classList.toggle("lightbox__thumb-btn--active", i === currentImageIndex);
+  });
+}
+setupGallery(
+  productThumbnailBtn,
+  productMainImg,
+  "product__thumb-btn--active",
+  (selectedIndex) => {
+    currentImageIndex = selectedIndex;
+  }
+);
+
+setupGallery(
+  lightboxThumbBtn,
+  lightboxMainImg,
+  "lightbox__thumb-btn--active",
+  (selectedIndex) => {
+    currentImageIndex = selectedIndex;
+  }
+);
+
 lightboxBtnNext.addEventListener("click", () => {
-  let nextIndex = currentLightboxIndex + 1;
+  let nextIndex = currentImageIndex + 1;
   if (nextIndex >= totalImages) {
-    nextIndex = 0;
+    nextIndex = 0; // Başa dön
   }
   updateLightbox(nextIndex);
 });
 
- lightboxBtnPrev.addEventListener("click", () => {
-   let prevIndex = currentLightboxIndex - 1;
-   if (prevIndex < 0) {
-     prevIndex = totalImages - 1;
-   }
-   updateLightbox(prevIndex);
-});
-
-lightboxThumbBtn.forEach((btn, index) => {
-  btn.addEventListener("click", () => {
-    updateLightbox(index);
-  });
-});
-
-
-productMainImg.addEventListener("click",()=>{
-lightbox.style.display="flex";
- lightboxThumbBtn.forEach((btn,index)=>{
-  btn.addEventListener("click",(a)=>{
- if(a.isTrusted){
-lightboxMainImg.src=`images/image-product-${index + 1}.jpg`
-lightboxThumbBtn.forEach((c) => c.classList.remove("lightbox__thumb-btn--active"));
-    btn.classList.add("lightbox__thumb-btn--active");
+lightboxBtnPrev.addEventListener("click", () => {
+  let prevIndex = currentImageIndex - 1;
+  if (prevIndex < 0) {
+    prevIndex = totalImages - 1;
   }
-  })
- })
+  updateLightbox(prevIndex);
+});
 
-})
- 
+productMainImg.addEventListener("click", () => {
+  updateLightbox(currentImageIndex);
+  lightbox.style.display = "flex";
+});
 
+lightboxCloseBtn.addEventListener("click", () => {
+  lightbox.style.display = "none";
+});
