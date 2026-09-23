@@ -6,7 +6,10 @@ const lightboxThumbBtn = document.querySelectorAll(".lightbox__thumb-btn");
 const lightboxBtnNext = document.querySelector(".lightbox__btn--next");
 const lightboxBtnPrev = document.querySelector(".lightbox__btn--prev");
 const lightboxCloseBtn = document.querySelector(".lightbox__close-btn");
-
+const decreaseQuantityBtn= document.querySelector(".decrease__quantity-btn")
+const IncreaseQuantityBtn= document.querySelector(".increase__quantity-btn")
+const productQuantityBtn= document.querySelectorAll(".product__quantity-btn")
+const productQuantityValue= document.querySelector(".product__quantity-value")
 function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
   buttons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
@@ -21,6 +24,7 @@ function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
 }
 
 let currentImageIndex = 0;
+
 const totalImages = lightboxThumbBtn.length;
 function updateLightbox(index) {
   currentImageIndex = index;
@@ -71,3 +75,24 @@ productMainImg.addEventListener("click", () => {
 lightboxCloseBtn.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
+
+let counterQuantityBtn=0
+// decreaseQuantityBtn.addEventListener("click",()=>{
+// productQuantityValue.innerHTML=counterQuantityBtn--
+// })
+// IncreaseQuantityBtn.addEventListener("click",()=>{
+// productQuantityValue.innerHTML=counterQuantityBtn++
+// })
+productQuantityBtn.forEach((btns)=>{
+btns.addEventListener("click",()=>{
+console.log(productQuantityValue.innerHTML=0)
+  if(productQuantityValue.innerHTML>=0){
+     productQuantityValue.innerHTML=counterQuantityBtn--
+  }
+  else{
+   productQuantityValue.innerHTML=counterQuantityBtn++ 
+  }
+})
+})
+ 
+
