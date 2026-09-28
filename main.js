@@ -6,10 +6,11 @@ const lightboxThumbBtn = document.querySelectorAll(".lightbox__thumb-btn");
 const lightboxBtnNext = document.querySelector(".lightbox__btn--next");
 const lightboxBtnPrev = document.querySelector(".lightbox__btn--prev");
 const lightboxCloseBtn = document.querySelector(".lightbox__close-btn");
-const decreaseQuantityBtn= document.querySelector(".decrease__quantity-btn")
-const IncreaseQuantityBtn= document.querySelector(".increase__quantity-btn")
-const productQuantityBtn= document.querySelectorAll(".product__quantity-btn")
-const productQuantityValue= document.querySelector(".product__quantity-value")
+const decreaseQuantityBtn = document.querySelector(".decrease__quantity-btn");
+const IncreaseQuantityBtn = document.querySelector(".increase__quantity-btn");
+const productQuantityBtn = document.querySelectorAll(".product__quantity-btn");
+const productQuantityValue = document.querySelector(".product__quantity-value");
+const productAddBtn=document.querySelector(".product__add-btn");
 function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
   buttons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
@@ -30,7 +31,10 @@ function updateLightbox(index) {
   currentImageIndex = index;
   lightboxMainImg.src = `images/image-product-${currentImageIndex + 1}.jpg`;
   lightboxThumbBtn.forEach((btn, i) => {
-    btn.classList.toggle("lightbox__thumb-btn--active", i === currentImageIndex);
+    btn.classList.toggle(
+      "lightbox__thumb-btn--active",
+      i === currentImageIndex,
+    );
   });
 }
 setupGallery(
@@ -39,7 +43,7 @@ setupGallery(
   "product__thumb-btn--active",
   (selectedIndex) => {
     currentImageIndex = selectedIndex;
-  }
+  },
 );
 
 setupGallery(
@@ -48,7 +52,7 @@ setupGallery(
   "lightbox__thumb-btn--active",
   (selectedIndex) => {
     currentImageIndex = selectedIndex;
-  }
+  },
 );
 
 lightboxBtnNext.addEventListener("click", () => {
@@ -76,23 +80,19 @@ lightboxCloseBtn.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
 
-let counterQuantityBtn=0
-// decreaseQuantityBtn.addEventListener("click",()=>{
-// productQuantityValue.innerHTML=counterQuantityBtn--
-// })
-// IncreaseQuantityBtn.addEventListener("click",()=>{
-// productQuantityValue.innerHTML=counterQuantityBtn++
-// })
-productQuantityBtn.forEach((btns)=>{
-btns.addEventListener("click",()=>{
-console.log(productQuantityValue.innerHTML=0)
-  if(productQuantityValue.innerHTML>=0){
-     productQuantityValue.innerHTML=counterQuantityBtn--
-  }
-  else{
-   productQuantityValue.innerHTML=counterQuantityBtn++ 
-  }
-})
-})
- 
+let counterQuantityBtn = 0;
+productQuantityBtn.forEach((btns) => {
+  btns.addEventListener("click", (e) => {
+    let action = e.currentTarget.dataset.action;
+    if (action === "increase") {
+      counterQuantityBtn++;
+    } else if (action === "decrease" && counterQuantityBtn > 0) {
+      counterQuantityBtn--;
+    }
+    productQuantityValue.textContent = counterQuantityBtn;
+  });
+});
 
+productAddBtn.addEventListener("click",()=>{
+  
+})

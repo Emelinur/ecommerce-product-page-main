@@ -34,6 +34,10 @@
       <div class="header__user">
         <button type="button" class="header__cart-btn" aria-label="View shopping cart">
           <img src="images/icon-cart.svg" alt="" aria-hidden="true" class="header__cart-icon">
+          <div class="header__cart-page">
+          <h2>Cart</h2>
+          <p>Your cart is empty.</p>
+          </div>
         </button>
         <a href="#" class="header__avatar-link">
           <img src="images/image-avatar.png" alt="User avatar" class="header__avatar">
@@ -89,9 +93,9 @@
 
           <div class="product__actions">
             <div class="product__quantity">
-              <button type="button" class="product__quantity-btn decrease__quantity-btn" aria-label="Decrease quantity">-</button>
+              <button type="button" class="product__quantity-btn" data-action="decrease" aria-label="Decrease quantity">-</button>
               <span class="product__quantity-value">0</span>
-              <button type="button" class="product__quantity-btn increase__quantity-btn" aria-label="Increase quantity">+</button>
+              <button type="button" class="product__quantity-btn" data-action="increase" aria-label="Increase quantity">+</button>
             </div>
 
             <button type="button" class="product__add-btn">
