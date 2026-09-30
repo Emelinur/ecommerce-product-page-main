@@ -101,11 +101,15 @@ header {
 .nav__list li {
   list-style-type: none;
 }
-.nav__list li a {
+.nav__link {
   text-decoration: none;
   color: var(--grey-500);
   font-weight: var(--fw-regular);
   line-height: var(--lh-400);
+}
+.nav__link:hover{
+  padding-bottom: 50px;
+border-bottom: 3px solid var(--orange-500);
 }
 .header__user {
   display: flex;
@@ -119,19 +123,33 @@ header {
   height: 20px;
   border: 0;
   background-color: var(--white);
-}
-.header__cart-page {
+  display: flex;
+  flex-direction: column;
   position: relative;
-  top: 30px;
-  right: 100px;
+  top: -15px
+}
+.header__cart-count{
+  color: var(--white);
+  background-color: var(--orange-500);
+  padding:1px;
+  border-radius: 100%;
+  font-size: var(--fs-400);
+  line-height: var(--lh-400);
+  font-weight: var(--fw-bold);
+  
+}
+.cart-dropdown{
+  position: absolute;
+  top: 80px;
+  right: 300px;
   z-index: 1;
   width: 360px;
-  height: 250px;
+  height: 256px;
   background-color: var(--white);
   border-radius: 10px;
   box-shadow: 5px 10px 18px #b1b1b1;
 }
-.cart__page-title {
+.cart-dropdown__title{
   font-size: var(--fs-400);
   line-height: var(--lh-400);
   font-weight: var(--fw-bold);
@@ -140,13 +158,40 @@ header {
   display: flex;
   border-bottom: 1px solid #dbdada;
 }
-.cart__page-content {
+.cart-dropdown__body{
   display: flex;
   justify-content: center;
   align-items: center;
   padding: var(--space-300);
   font-size: var(--fs-400);
   line-height: var(--lh-400);
+}
+.cart-item__img{
+  width: 50px;
+  height: 50px;
+}
+.cart-item{
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-200);
+
+}
+.cart-item__info{
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-100);
+}
+.cart-item__title{
+    margin: 0;
+  padding: 0;
+  font-size: var(--fs-400);
+  line-height: var(--lh-400);
+  font-weight: var(--fw-regular);
+  color: var(--grey-500);
+}
+.cart-item__price-calculation{
+      margin: 0;
+  padding: 0;
 }
 .header__avatar {
   width: 50px;
@@ -310,6 +355,9 @@ header {
 .product__add-btn-icon {
   filter: brightness(0);
 }
+.product__add-btn:hover{
+  background-color: var(--orange-300);
+}
 /* LIGHTBOX MODAL LAYERS */
 .lightbox {
   position: fixed;
@@ -441,7 +489,7 @@ header {
   .nav__list {
     display: none;
   }
-  .header__cart-page {
+  .cart-dropdown {
     position: absolute;
     top: 80px;
     right: 0px;
@@ -529,7 +577,7 @@ header {
     width: var(--space-300);
     height: var(--space-300);
   }
-  .header__cart-page {
+  .cart-dropdown {
     position: absolute;
     top: 80px;
     right: 10px;
