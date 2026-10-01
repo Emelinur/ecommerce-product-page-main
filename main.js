@@ -12,6 +12,7 @@ const productQuantityBtn = document.querySelectorAll(".product__quantity-btn");
 const productQuantityValue = document.querySelector(".product__quantity-value");
 const productAddBtn=document.querySelector(".product__add-btn");
 const headerCartBtn=document.querySelector(".header__cart-btn")
+const cartDropdown=document.querySelector(".cart-dropdown")
 const cartItemPriceCalculation=document.querySelector(".cart-item__price-calculation")
 function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
   buttons.forEach((btn, index) => {
@@ -95,7 +96,7 @@ productQuantityBtn.forEach((btns) => {
   });
 });
 headerCartBtn.addEventListener("click",()=>{
-  console.log("tıklandı")
+cartDropdown.classList.toggle("cart-dropdown--active")
 })
 
 

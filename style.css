@@ -140,6 +140,9 @@ header {
 .header__cart-icon:hover{
   cursor: pointer;
 }
+.cart-dropdown--active{
+  display: none;
+}
 .cart-dropdown {
   position: absolute;
   top: 80px;
