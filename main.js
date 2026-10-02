@@ -11,9 +11,15 @@ const IncreaseQuantityBtn = document.querySelector(".increase__quantity-btn");
 const productQuantityBtn = document.querySelectorAll(".product__quantity-btn");
 const productQuantityValue = document.querySelector(".product__quantity-value");
 const productAddBtn=document.querySelector(".product__add-btn");
-const headerCartBtn=document.querySelector(".header__cart-btn")
-const cartDropdown=document.querySelector(".cart-dropdown")
-const cartItemPriceCalculation=document.querySelector(".cart-item__price-calculation")
+const headerCartBtn=document.querySelector(".header__cart-btn");
+const cartDropdown=document.querySelector(".cart-dropdown");
+const cartItemPriceCalculation=document.querySelector(".cart-item__price-calculation");
+const headerCartCount=document.querySelector(".header__cart-count");
+const cartDropdownEmpty=document.querySelector(".cart-dropdown__empty");
+const cartItem=document.querySelector(".cart-item");
+const cartDropdownCheckoutBtn=document.querySelector(".cart-dropdown__checkout-btn")
+const productTitle=document.querySelector(".product__title")
+const cartItemTitle=document.querySelector(".cart-item__title")
 function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
   buttons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
@@ -93,8 +99,11 @@ productQuantityBtn.forEach((btns) => {
       counterQuantityBtn--;
     }
     productQuantityValue.textContent = counterQuantityBtn;
+    headerCartCount.innerHTML=counterQuantityBtn;
   });
+  
 });
+
 headerCartBtn.addEventListener("click",()=>{
 cartDropdown.classList.toggle("cart-dropdown--active")
 })
@@ -102,5 +111,8 @@ cartDropdown.classList.toggle("cart-dropdown--active")
 
 productAddBtn.addEventListener("click",()=>{
 
-  cartItemPriceCalculation
+  cartDropdownEmpty.style.display="none"
+  cartItem.style.display="flex"
+  cartDropdownCheckoutBtn.style.display="flex"
+cartItemTitle.innerText=productTitle.innerText;
 })
