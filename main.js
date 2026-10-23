@@ -10,22 +10,30 @@ const decreaseQuantityBtn = document.querySelector(".decrease__quantity-btn");
 const IncreaseQuantityBtn = document.querySelector(".increase__quantity-btn");
 const productQuantityBtn = document.querySelectorAll(".product__quantity-btn");
 const productQuantityValue = document.querySelector(".product__quantity-value");
-const productAddBtn=document.querySelector(".product__add-btn");
-const headerCartBtn=document.querySelector(".header__cart-btn");
-const cartDropdown=document.querySelector(".cart-dropdown");
-const cartItemPriceCalculation=document.querySelector(".cart-item__price-calculation");
-const headerCartCount=document.querySelector(".header__cart-count");
-const cartDropdownEmpty=document.querySelector(".cart-dropdown__empty");
-const cartItem=document.querySelector(".cart-item");
-const cartDropdownCheckoutBtn=document.querySelector(".cart-dropdown__checkout-btn");
-const productTitle=document.querySelector(".product__title");
-const cartItemTitle=document.querySelector(".cart-item__title");
-const cartItemDeleteBtn=document.querySelector(".cart-item__delete-btn");
-const cartPriceCalculation=document.querySelector(".cart-item__price-calculation")
-const productPrice=document.querySelector(".product__price")
-const cartItemQuantity=document.querySelector(".cart-item__quantity")
-const cartItemProductPrice=document.querySelector(".cart-item__product-price")
-const cartItemTotalPrice=document.querySelector(".cart-item__total-price")
+const productAddBtn = document.querySelector(".product__add-btn");
+const headerCartBtn = document.querySelector(".header__cart-btn");
+const cartDropdown = document.querySelector(".cart-dropdown");
+const cartItemPriceCalculation = document.querySelector(
+  ".cart-item__price-calculation",
+);
+const headerCartCount = document.querySelector(".header__cart-count");
+const cartDropdownEmpty = document.querySelector(".cart-dropdown__empty");
+const cartItem = document.querySelector(".cart-item");
+const cartDropdownCheckoutBtn = document.querySelector(
+  ".cart-dropdown__checkout-btn",
+);
+const productTitle = document.querySelector(".product__title");
+const cartItemTitle = document.querySelector(".cart-item__title");
+const cartItemDeleteBtn = document.querySelector(".cart-item__delete-btn");
+const cartPriceCalculation = document.querySelector(
+  ".cart-item__price-calculation",
+);
+const productPrice = document.querySelector(".product__price");
+const cartItemQuantity = document.querySelector(".cart-item__quantity");
+const cartItemProductPrice = document.querySelector(
+  ".cart-item__product-price",
+);
+const cartItemTotalPrice = document.querySelector(".cart-item__total-price");
 function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
   buttons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
@@ -105,32 +113,40 @@ productQuantityBtn.forEach((btns) => {
       counterQuantityBtn--;
     }
     productQuantityValue.textContent = counterQuantityBtn;
-    headerCartCount.innerHTML=counterQuantityBtn;
+    headerCartCount.innerHTML = counterQuantityBtn;
   });
-  
 });
 
-headerCartBtn.addEventListener("click",()=>{
-cartDropdown.classList.toggle("cart-dropdown--active")
-})
+headerCartBtn.addEventListener("click", () => {
+  cartDropdown.classList.toggle("cart-dropdown--active");
+   cartDropdownCheckoutBtn.style.display = "none"
+});
 
+productAddBtn.addEventListener("click", () => {
+  cartDropdownEmpty.style.display = "none";
+  cartItem.style.display = "flex";
+  cartDropdownCheckoutBtn.style.display = "flex"
+  cartDropdownCheckoutBtn.style.display = "flex";
+  cartItemProductPrice.innerHTML = productPrice.innerHTML;
+  cartItemTitle.innerText = productTitle.innerText;
 
-productAddBtn.addEventListener("click",()=>{
-  cartDropdownEmpty.style.display="none"
-  cartItem.style.display="flex"
-  cartDropdownCheckoutBtn.style.display="flex"
-  cartItemProductPrice.innerHTML=productPrice.innerHTML
-cartItemTitle.innerText=productTitle.innerText;
-cartItemDeleteBtn.addEventListener("click",()=>{
-    cartDropdownEmpty.style.display="flex"
-  cartItem.style.display="none"
-  cartItemProductPrice.innerHTML=productPrice.innerHTML
-  cartDropdownCheckoutBtn.style.display="none"
-})
-let productPriceValue=productPrice.innerHTML;
-productPriceValue.split("$")[1]
-cartItemQuantity.innerHTML=productQuantityValue.innerHTML;
-let priceCalculation=(productPriceValue.split("$")[1])*(cartItemQuantity.innerHTML)
-cartItemTotalPrice.innerHTML=priceCalculation;
+  cartItemDeleteBtn.addEventListener("click", () => {
+    cartDropdownEmpty.style.display = "flex";
+    cartItem.style.display = "none";
+    cartItemProductPrice.innerHTML = productPrice.innerHTML;
+    cartDropdownCheckoutBtn.style.display = "none";
+    headerCartCount.innerHTML=0;
+    productQuantityValue.innerHTML=0
 
-})
+  });
+
+  let productPriceValue = productPrice.textContent;
+  let cleanedNumber = productPriceValue
+    .replace(/[^0-9.,]/g, "")
+    .replace(",", ".");
+  let unitPrice = parseFloat(cleanedNumber);
+  cartItemQuantity.textContent = productQuantityValue.textContent;
+  let quantity = parseInt(cartItemQuantity.textContent, 10);
+  let priceCalculation = (unitPrice * quantity).toFixed(2);
+  cartItemTotalPrice.textContent = priceCalculation;
+});
