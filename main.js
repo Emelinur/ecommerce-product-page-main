@@ -13,6 +13,11 @@ const productQuantityValue = document.querySelector(".product__quantity-value");
 const productAddBtn = document.querySelector(".product__add-btn");
 const headerCartBtn = document.querySelector(".header__cart-btn");
 const cartDropdown = document.querySelector(".cart-dropdown");
+const menu=document.querySelector(".menu")
+const navActive=document.querySelector(".nav-active")
+const navClose=document.querySelector(".nav-close")
+const nav=document.querySelector(".nav")
+const menuOverlay=document.querySelector(".menu-overlay")
 const cartItemPriceCalculation = document.querySelector(
   ".cart-item__price-calculation",
 );
@@ -150,3 +155,12 @@ productAddBtn.addEventListener("click", () => {
   let priceCalculation = (unitPrice * quantity).toFixed(2);
   cartItemTotalPrice.textContent = priceCalculation;
 });
+
+menu.addEventListener("click",()=>{
+menuOverlay.style.display="flex"
+nav.classList.toggle("nav-active");
+navClose.addEventListener("click",()=>{
+  nav.classList.remove("nav-active")
+  menuOverlay.style.display="none"
+})
+})
