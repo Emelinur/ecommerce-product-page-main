@@ -123,15 +123,16 @@ function renderCard() {
     cartDropdownEmpty.style.display = "none";
     cartItem.style.display = "flex";
     cartDropdownCheckoutBtn.style.display = "block";
-     const rawPrice = productPrice.textContent;
-    const unitPrice = parseFloat(rawPrice.replace(/[^0-9.,]/g, "").replace(",", "."));
+    const rawPrice = productPrice.textContent;
+    const unitPrice = parseFloat(
+      rawPrice.replace(/[^0-9.,]/g, "").replace(",", "."),
+    );
     const total = unitPrice * cartQuantity;
     cartItemTitle.textContent = productTitle.textContent;
     cartItemProductPrice.innerHTML = `$${unitPrice.toFixed(2)} x ${cartQuantity} <strong>$${total.toFixed(2)}</strong>`;
     headerCartCount.textContent = cartQuantity;
     headerCartCount.style.display = "block";
   }
- 
 }
 
 headerCartBtn.addEventListener("click", () => {
@@ -139,15 +140,15 @@ headerCartBtn.addEventListener("click", () => {
 });
 
 productAddBtn.addEventListener("click", () => {
- if(counterQuantityBtn>0){
-  cartQuantity = counterQuantityBtn;
-  renderCard()
- }
+  if (counterQuantityBtn > 0) {
+    cartQuantity = counterQuantityBtn;
+    renderCard();
+  }
 });
 cartItemDeleteBtn.addEventListener("click", () => {
-counterQuantityBtn=0;
- renderCard()
-  });
+  counterQuantityBtn = 0;
+  renderCard();
+});
 
 menu.addEventListener("click", () => {
   menuOverlay.style.display = "flex";
