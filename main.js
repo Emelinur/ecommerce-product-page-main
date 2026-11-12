@@ -6,6 +6,8 @@ const lightboxThumbBtn = document.querySelectorAll(".lightbox__thumb-btn");
 const lightboxBtnNext = document.querySelector(".lightbox__btn--next");
 const lightboxBtnPrev = document.querySelector(".lightbox__btn--prev");
 const lightboxCloseBtn = document.querySelector(".lightbox__close-btn");
+const productPreviousButton=document.querySelector(".product__previousButton")
+const productNextButton=document.querySelector(".product__nextButton")
 const productQuantityBtn = document.querySelectorAll(".product__quantity-btn");
 const productQuantityValue = document.querySelector(".product__quantity-value");
 const productAddBtn = document.querySelector(".product__add-btn");
@@ -98,6 +100,15 @@ lightboxCloseBtn.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
 
+productPreviousButton.addEventListener("click",()=>{
+  console.log("tıklanıd")
+})
+
+productNextButton.addEventListener("click",()=>{
+  console.log("tıklan")
+})
+
+
 let counterQuantityBtn = 0;
 productQuantityBtn.forEach((btns) => {
   btns.addEventListener("click", (e) => {
@@ -108,6 +119,7 @@ productQuantityBtn.forEach((btns) => {
       counterQuantityBtn--;
     }
     productQuantityValue.textContent = counterQuantityBtn;
+    
     headerCartCount.innerHTML = counterQuantityBtn;
   });
 });
@@ -147,6 +159,7 @@ productAddBtn.addEventListener("click", () => {
 });
 cartItemDeleteBtn.addEventListener("click", () => {
   counterQuantityBtn = 0;
+  productQuantityValue.textContent=0;
   renderCard();
 });
 
