@@ -45,7 +45,6 @@ function setupGallery(buttons, mainImg, activeClass, onSelectCallback) {
 }
 
 let currentImageIndex = 0;
-
 const totalImages = lightboxThumbBtn.length;
 function updateLightbox(index) {
   currentImageIndex = index;
@@ -100,12 +99,14 @@ lightboxCloseBtn.addEventListener("click", () => {
   lightbox.style.display = "none";
 });
 
+
 productPreviousButton.addEventListener("click",()=>{
-  console.log("tıklanıd")
+  console.log("click")
+
 })
 
 productNextButton.addEventListener("click",()=>{
-  console.log("tıklan")
+  console.log("click")
 })
 
 
