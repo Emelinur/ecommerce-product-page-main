@@ -73,12 +73,12 @@
         <!-- PRODUCT GALLERY SUB-BLOCK -->
         <div class="product__gallery">
           <div class="product__main-img-wrapper">
-            <button type="button" class="product__previousButton" aria-label="Previous product image">
-              <img src="images/icon-previous.svg" alt=" previous icon images" aria-hidden="true">
+            <button type="button" class="product__previousButton gallery-nav-btn" aria-label="Previous product image" data-dir="prev">
+              <img src="images/icon-previous.svg" alt=" previous icon images" aria-hidden="true" >
             </button>
             <img src="images/image-product-1.jpg" alt="Fall Limited Edition Sneakers side view"
               class="product__main-img">
-            <button type="button" class="product__nextButton" aria-label="Next product image">
+            <button type="button" class="product__nextButton gallery-nav-btn" aria-label="Next product image" data-dir="next">
               <img src="images/icon-next.svg" alt="next icon images" aria-hidden="true">
             </button>
           </div>
@@ -147,11 +147,11 @@
         <img src="images/icon-close.svg" alt="" aria-hidden="true">
       </button>
       <div class="lightbox__main-img-wrapper">
-        <button type="button" class="lightbox__btn lightbox__btn--prev" aria-label="Previous image">
+        <button type="button" class="lightbox__btn lightbox__btn--prev gallery-nav-btn" aria-label="Previous image" data-dir="prev">
           <img src="images/icon-previous.svg" alt="" aria-hidden="true">
         </button>
         <img src="images/image-product-1.jpg" alt="Selected product view" class="lightbox__main-img">
-        <button type="button" class="lightbox__btn lightbox__btn--next" aria-label="Next image">
+        <button type="button" class="lightbox__btn lightbox__btn--next gallery-nav-btn" aria-label="Next image" data-dir="next">
           <img src="images/icon-next.svg" alt="" aria-hidden="true">
         </button>
       </div>
