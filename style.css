@@ -356,7 +356,7 @@ header {
   font-size: var(--fs-400);
   line-height: var(--lh-400);
   font-weight: var(--fw-bold);
-}
+} 
 .product__actions {
   display: flex;
   flex-direction: row;
@@ -384,7 +384,7 @@ header {
 .product__quantity-value {
   font-size: var(--fs-400);
   line-height: var(--lh-400);
-  font-weight: var(--fw-bold);
+  font-weight: var(--fw-bold);z
 }
 .product__add-btn {
   display: flex;
@@ -537,7 +537,7 @@ header {
     display: none;
   }
   .nav-active{
-    position: absolute;
+    position: fixed;
     width: 301px;
     height: 100%;
     background-color: var(--white);
@@ -653,6 +653,10 @@ width: 100%;
     padding: var(--space-200);
     border-bottom: 0;
   }
+  .nav__link:hover {
+  padding-bottom: 5px;
+  border-bottom: 3px solid var(--orange-500);
+}
 
   .header__user {
     display: flex;
